@@ -154,6 +154,6 @@ if __name__ == "__main__":
         listaProductos.append(info_completa)
 
     # Ordena la lista de acuerdo al parametro "codigo" de cada objecto
-    listaProductosOrdenada = ordenar_alfabeticamente(listaProductos, "codigo")
+    listaProductosOrdenada = ordenar_alfabeticamente(listaProductos, "nombre")
     # Presenta los datos de acuerdo a los requerimientos del reto
     presenta_datos(listaProductosOrdenada, valor_total_acumulado, iva_acumulado)
