@@ -4,26 +4,39 @@ def recibir_cantidad_de_producto():
     return cantidad_de_producto
 
 
-def recibir_info_producto(numero_producto):
+def recibir_info_producto():
     """Recibe los datos de un producto por teclado
     y los devuelve organizados en un diccionario
     """
-    # print(f"Ingrese los datos del producto {numero_producto + 1}")
 
-    # print("Código del producto")
-    codigoProducto = str(input())
+    articulos = {
+        1: "Lapiz",
+        2: "Cuaderno",
+        3: "Borrador",
+        4: "Regla",
+        5: "ColoresX12",
+        6: "Escuadra",
+        7: "Calculadora",
+        8: "CrayonesX6",
+    }
 
-    # print("Nombre del producto")
-    nombreProducto = str(input())
+    precios = {
+        1: 2500,
+        2: 4500,
+        3: 1500,
+        4: 5000,
+        5: 24000,
+        6: 4700,
+        7: 45000,
+        8: 8900,
+    }
 
-    # print("Cantidad comprada")
+    codigoProducto = int(input())
     cantidad = int(input())
+    tipoDeIva = int(input())
 
-    # print("Valor sin iva: ")
-    valorUnitarioSinIva = float(input())
-
-    # print("Tipo de iva: \n1: 0% \n2: 5% \n3: 19%")
-    tipoDeIva = float(input())
+    nombreProducto = articulos.get(codigoProducto)
+    valorUnitarioSinIva = precios.get(codigoProducto)
 
     return {
         "codigo": codigoProducto,
@@ -113,7 +126,7 @@ def ordenar_alfabeticamente(listaProductos, param):
 def presenta_datos(listaProductos, valor_total, iva_acumulado):
     for producto in listaProductos:
         print(producto.get("codigo"))
-        print(producto.get("valor_iva_producto"))
+        print(producto.get("nombre"))
         print(producto.get("valor_producto_sin_iva"))
         print(producto.get("valor_total_producto"))
     print(valor_total)
@@ -145,7 +158,7 @@ if __name__ == "__main__":
     # Recibe Informacion de cada producto
     rango_productos = range(cantidad)
     for n in rango_productos:
-        info_basica = recibir_info_producto(n)
+        info_basica = recibir_info_producto()
         info_completa = calcular_valores_asociados(info_basica)
         iva_acumulado = iva_acumulado + info_completa.get("valor_iva_producto")
         valor_total_acumulado = valor_total_acumulado + info_completa.get(
