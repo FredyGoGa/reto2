@@ -36,7 +36,7 @@ def recibir_info_producto():
     tipoDeIva = int(input())
 
     nombreProducto = articulos.get(codigoProducto)
-    valorUnitarioSinIva = precios.get(codigoProducto)
+    valorUnitarioSinIva = float(precios.get(codigoProducto))
 
     return {
         "codigo": codigoProducto,
